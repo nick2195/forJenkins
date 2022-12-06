@@ -1,7 +1,7 @@
-FROM python:latest
+FROM python:slim-buster
 
 WORKDIR /opt/app/
 COPY . /opt/app/
 
-ENTRYPOINT [ "python3" ]
-CMD ["app.py"]
+CMD [ "python3" , "app.py" ]
+CMD [ "tail" , "-f" , "/dev/null"]
