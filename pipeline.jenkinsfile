@@ -28,7 +28,7 @@ pipeline {
          stage ('Container run and remove') {
             steps {
                 sh "docker run --name test_container --rm -d test:$BUILD_NUMBER"
-                sh "docker exec -it test_container sh"
+                sh "docker exec -i test_container sh"
                 sh "ls -la"
             }
         }
