@@ -1,12 +1,32 @@
+#!groovy
+properties([disableConcurrentBuilds()])
+
 pipeline {
     agent any
 
+    options {
+        buildDiscarder(logRotator(numToKeepStr: '10', artifactNumToKeepStr: '10'))
+        timestamps()
+    }
 
     stages {
         stage ('Docker version') {
             steps {
                 sh "echo $USER"
                 sh "docker version"
+            }
+        }
+
+        stage ('Github checkout') {
+            steps {
+                git branch: 'main' , 
+                    url: 'https://github.com/nick2195/forJenkins'
+            }
+        }
+
+        stage ('Docker build image') {
+            steps {
+                sh "docker build -t test:$BUILD_NUMBER ."
             }
         }
     }
