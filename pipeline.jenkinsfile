@@ -10,10 +10,10 @@ pipeline {
     }
 
     stages {
-        stage ('Docker version') {
+        stage ('Check directory') {
             steps {
-                sh "echo $USER"
-                sh "docker version"
+                sh "pwd"
+                sh "ls -la"
             }
         }
 
