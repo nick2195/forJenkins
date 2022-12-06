@@ -28,7 +28,16 @@ pipeline {
          stage ('Container run and remove') {
             steps {
                 sh "docker run --name test_container --rm -d test:$BUILD_NUMBER"
-                sh "docker exec -i test_container sh && ls -la"
+            }
+        }
+
+          stage ('Image push to dockerhub') {
+            steps {
+                withDockerRegistry(credentialId: 'dockerhub', url: 'https://index.docker.io/v1/'){
+                    sh '''
+                        docker push nick2195/testrepo:$BUILD_NUMBER
+                    '''
+                }
             }
         }
     }
