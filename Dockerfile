@@ -4,4 +4,4 @@ WORKDIR /opt/app/
 COPY . /opt/app/
 
 CMD [ "python3" , "app.py" ]
-CMD [ "sleep" , "30" ]
+CMD [ "sleep" , "100" ]
