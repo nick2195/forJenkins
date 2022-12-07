@@ -29,7 +29,7 @@ pipeline {
         
         stage ('Container run and remove') {
             steps {
-                sh "docker run --name test_container --rm -d nick2195/test:$BUILD_NUMBER"
+                sh "docker run --name test_container --rm nick2195/test:$BUILD_NUMBER"
             }
         }
 
