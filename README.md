@@ -1,2 +1,2 @@
 # forJenkins
-**Small pipe to show how Jenkins works with gitrepo(.gitignore, Dockerfile, Jenkinsfile) with Project.**
+**Small pipe to show how Jenkins works with gitrepo(.dockerignore, Dockerfile, Jenkinsfile) with Project.**
